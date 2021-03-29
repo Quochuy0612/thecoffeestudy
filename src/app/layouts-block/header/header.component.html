@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light  justify-content-between" style="background-color: #6e6b74b0;">
+    <a routerLink="/coffee" style="color: rgb(182, 55, 17); font-size: 25px; font-family: Algerian;"><b>THE COFFEE STUDY®</b></a>
+    <a  style="color: rgb(182, 55, 17); font-size: 20px;"><b>Mang Tiếng Anh Đến Gần Mọi Người</b></a>
+    <form class="form-inline">
+        <div *ngIf="!username">
+            <button class="raise" type="submit" [routerLink]="['/signup']">Đăng Ký</button>
+            <button class="raise" type="submit" [routerLink]="['/login']">Đăng Nhập</button>
+        </div>
+        <div *ngIf="username">
+            <button class="raise" type="submit" (click)="homeUser()">{{username}}</button>
+            <button class="raise" type="submit" (click)="logout()">Đăng Xuất</button>
+        </div>
+    </form>
+</nav>
+<div class="dk"></div>

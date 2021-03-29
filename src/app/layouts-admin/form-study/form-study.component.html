@@ -1,0 +1,177 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <!-- ////////////////////////////////////////////////////////////////////////// -->
+        <div class="control-group">
+            <h3><b>Thêm Level Khóa Học</b></h3>
+            <form>
+                <div class="row col-12">
+                    <div class="col-4">
+                        <input #levelnameInput type="text" class="form-control borderradius"
+                            placeholder="Nhập Level......">
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="b1 btn-primary"
+                            (click)="createNewLevel(levelnameInput.value)">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- ////////////////////////////////////////////////////////////////////////// -->
+        <div class="control-group">
+            <h3><b>Thêm Lớp Học</b></h3>
+            <div class="form-group row col-12">
+                <label class="control col-2">Chọn Level</label>
+                <div class="controls col-4">
+                    <select [(ngModel)]="selectedValue" class="form-control borderradius">
+                        <option *ngFor="let level of level" [value]="level._id">{{level.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <form [formGroup]="form" (submit)="onSubmit()">
+                <div class="form-group row col-12">
+                    <label class="control col-2">Tên lớp Học</label>
+                    <div class="controls col-4">
+                        <input formControlName="name" type="text" class="form-control borderradius" />
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <label class="control col-2">Địa Chỉ</label>
+                    <div class="controls col-4">
+                        <input formControlName="address" type="text" class="form-control borderradius" />
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <label class="control col-2">Thời Gian Bắt Đầu</label>
+                    <div class="controls col-4">
+                        <input formControlName="start_date" type="date" class="form-control borderradius" />
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <label class="control col-2">Thời Gian Kết Thúc</label>
+                    <div class="controls col-4">
+                        <input formControlName="end_date" type="date" class="form-control borderradius" />
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <label class="control col-2">Chọn Khung ngày</label>
+                    <div class="controls col-4">
+                        <select formControlName="weekday" class="form-control">
+                            <option value="2 - 4 - 6">Thứ 2 - Thứ 4 -  Thứ 6</option>
+                            <option value="3 - 5 - 7">Thứ 3 - Thứ 5 -  Thứ 7</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <label class="control col-2">Chọn giờ</label>
+                    <div class="controls col-3">
+                        <label style="margin-right: 10px; font-size: 15px;">Bắt Đầu </label>
+                        <input type="time" formControlName="start_time">
+                    </div>
+                    <div class="controls col-3">
+                        <label style="margin-right: 10px; font-size: 15px;">Kết Thúc</label>
+                        <input type="time" formControlName="end_time">
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <label class="control col-2">Học Phí</label>
+                    <div class="controls col-4">
+                        <input formControlName="price" type="text" class="form-control borderradius" />
+                    </div>
+                </div>
+                <div class="form-actions" style="margin-left: 600px;">
+                    <button type="submit" class="b1 btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+        <!-- ////////////////////////////////////////////////////////////////////////// -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+
+                                <div class="row col-12">
+                                    <div class="col-8">
+                                        <h4 class="card-title ">Details Class</h4>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="nav flex-column">
+                                            <select [(ngModel)]="selectedView" class="form-control borderradius">
+                                                <option *ngFor="let level of level" [value]="level._id">{{level.name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <button (click)="clickClass()" type="submit" class="b1 btn-danger">View
+                                            Class</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                STT
+                                            </th>
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>
+                                                Address
+                                            </th>
+                                            <th>
+                                                Start Date
+                                            </th>
+                                            <th>
+                                                End Date
+                                            </th>
+                                            <th>
+                                                Price
+                                            </th>
+                                        </thead>
+                                        <tbody *ngFor="let class of class;let i = index" [attr.data-index]="i">
+                                            <td>
+                                                <tr>
+                                                    {{i+1}}
+                                                </tr>
+                                            </td>
+                                            <td>
+                                                <tr>
+                                                    {{class.name}}
+                                                </tr>
+                                            </td>
+                                            <td>
+                                                <tr>
+                                                    {{class.address}}
+                                                </tr>
+                                            </td>
+                                            <td>
+                                                <tr>
+                                                    {{class.start_date}}
+                                                </tr>
+                                            </td>
+                                            <td>
+                                                <tr>
+                                                    {{class.end_date}}
+                                                </tr>
+                                            </td>
+                                            <td>
+                                                <tr>
+                                                    {{class.price}}
+                                                </tr>
+                                            </td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

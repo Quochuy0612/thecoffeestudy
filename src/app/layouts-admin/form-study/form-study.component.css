@@ -1,0 +1,29 @@
+a{
+    display: inline-block;
+    padding: 15px 30px;
+    color: #f40303;
+    font-family: Lucida;
+    font-size: 15px;
+    margin-right: 50px;
+}
+.b1{
+    padding: 5px 30px 5px 30px;
+    border-radius: 5px;
+    background-color: #EA4643;
+}
+.borderradius{
+    border-radius: 5px;
+}
+span{
+    margin-right: 20px;
+}
+.flex{
+    float: left;
+}
+ul{
+    overflow: hidden;
+    list-style-type: none;
+}
+li{
+    padding-left: 10px;
+}

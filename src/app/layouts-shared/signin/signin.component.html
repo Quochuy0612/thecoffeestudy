@@ -1,0 +1,97 @@
+<div class="background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form [formGroup]="loginForm" class="login-container box">
+                        <h1>Login</h1>
+                        <p class="text-muted"> Please enter your login and password!</p>
+                        <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
+                            <input #usernameInput type="username" placeholder="Email or PhoneNumber" formControlName="username">
+                        </p>
+
+                        <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+                            <div *ngIf="formControls.username.errors.required">Vui lòng nhập Số điện thoại hoặc email</div>
+                        </div>
+
+                        <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+                            <input #passwordInput type="password" placeholder="Password" formControlName="password">
+                        </p>
+
+                        <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+                            <div *ngIf="formControls.password.errors.required">Vui lòng nhập Password</div>
+                        </div>
+
+                        <a class="forgot text-muted" routerLink="/resetpassword">Forgot password?</a>
+                        <div class="row col-md-12 remove-margin">
+                            <input type="submit" name="" value="Signup" routerLink="/signup">
+                            <input type="submit" name="" value="Login"
+                                (click)="onLoginButtonClicked(usernameInput.value, passwordInput.value)">
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="social-network social-circle">
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i
+                                            class="fa fa-facebook-f"></i></a>
+                                </li>
+                                <li><a onclick="checkLoginState()" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+        console.log('statusChangeCallback');
+        console.log(response);                   // The current login status of the person.
+        if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+            testAPI();
+} else {                                 // Not logged into your webpage or we are unable to tell.
+            document.getElementById('status').innerHTML = 'Please log ' +
+                'into this webpage.';
+        }
+    }
+
+    function checkLoginState() {               // Called when a person is finished with the Login Button.
+        FB.getLoginStatus(function (response) {   // See the onlogin handler
+            statusChangeCallback(response);
+        }, { scope: 'public_profile,email' });
+    }
+
+
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '7002119406580371',
+            cookie: true,                     // Enable cookies to allow the server to access the session.
+            xfbml: true,                     // Parse social plugins on this webpage.
+            version: 'v10.0'           // Use this Graph API version for this call.
+        });
+
+
+        FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
+            statusChangeCallback(response);        // Returns the login status.
+        });
+    };
+
+    function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function (response) {
+            console.log('Successful login for: ' + response.name);
+            document.getElementById('status').innerHTML =
+                'Thanks for logging in, ' + response.name + '!';
+        });
+    }
+</script>
+
+<div class="fb-login-button" data-width="" data-size="small" data-button-type="login_with" data-layout="default"
+    data-auto-logout-link="false" data-use-continue-as="false" onclick="checkLoginState()"></div>
+<div id="status">
+</div>

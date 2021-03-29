@@ -1,0 +1,49 @@
+.background {
+    background: linear-gradient(to right, #b92b27, #1565c0);
+    height: 100vh;
+    padding: 70px 0px 0px 280px;
+    
+}
+
+.form-control { 
+    margin-bottom: 10px;
+}
+.login-screen-bg {  
+    background-color: #EFEFEF;
+}
+.bntdangky {
+    border-radius: 3px;
+    padding: 6px;
+    width: 1000px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+form {
+    background-color: #191919;
+    padding-top: 20px;
+    box-sizing: border-box;
+    width: 900px;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    padding-bottom: 40px;
+    border-radius: 5px;
+}
+form h3 {
+    box-sizing: border-box;
+    padding: 20px;
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.margin{
+    margin-top: 50px;
+    background-color: black;
+}
+h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+option {
+    font-family: Arial;
+    font-size: 15px;
+}

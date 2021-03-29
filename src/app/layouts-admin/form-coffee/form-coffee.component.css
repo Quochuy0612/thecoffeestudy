@@ -1,0 +1,24 @@
+a{
+    display: inline-block;
+    padding: 15px 30px;
+    color: #f40303;
+    font-family: Lucida;
+    font-size: 15px;
+    margin-right: 50px;
+}
+.b1{
+    padding: 5px 30px 5px 30px;
+    border-radius: 5px;
+    background-color: #F44336;
+}
+.borderradius{
+    border-radius: 5px;
+}
+.pro{
+    font-size: 30px;
+}
+.img1 {
+    width: 400px;
+    height: 267px;
+}
+

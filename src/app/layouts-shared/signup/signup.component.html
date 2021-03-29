@@ -1,0 +1,118 @@
+<div class="background">
+    <div class="container">
+        <form>
+
+            <h1 class="text-center" style="margin-bottom: 30px;">Signup</h1>
+
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">Họ Và Tên</div>
+                </div>
+                <div class="col-md-6">
+                    <input #fullnameInput type="text" class="form-control">
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">Số Điện Thoại</div>
+                </div>
+                <div class="col-md-6">
+                    <input #phonnumberInput type="text" class="form-control">
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">Email</div>
+                </div>
+                <div class="col-md-6">
+                    <input #emailInput type="text" class="form-control">
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">Mật Khẩu</div>
+                </div>
+                <div class="col-md-6">
+                    <input #passwordInput type="password" class="form-control">
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <div class="col-md-12">Nhập Lại mật Khẩu</div>
+                </div>
+                <div class="col-md-6">
+                    <input type="password" name="lapmatkhau" class="form-control">
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">Giới Tính</div>
+                </div>
+                <div class="col-md-6">
+                    <span>
+                        <input #sexInput type="radio" value="Nam" style="margin-left: 50px;">Nam
+                    </span>
+                    <span>
+                        <input #sexInput type="radio" value="Nu" style="margin-left: 150px;">Nữ
+                    </span>
+
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">Ngày Sinh</div>
+                </div>
+                <div class="col-md-6">
+                    <input #birthdayInput type="date" class="form-control">
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-md-4">
+                    <div class="col-md-12">Bạn đến với chúng tôi với vai trò gì</div>
+                </div>
+                <div class="col-md-6">
+                    <select #rolesInput class="form-control">
+                        <option value="Guest">Một Vị Khách</option>
+                        <option value="Lecturers">Giảng Viên</option>
+                        <option value="Student">Học Viên</option>
+                    </select>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <div class="bntdangky" >
+                <button  class="btn btn-primary" style="margin-left: 420px;" 
+                (click)="onSignupButtonClicked(fullnameInput.value, phonnumberInput.value, emailInput.value, passwordInput.value, sexInput.value,birthdayInput.value, rolesInput.value)">Signup</button>
+            </div>
+        </form>
+    </div>
+
+</div>
